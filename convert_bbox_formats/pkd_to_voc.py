@@ -58,6 +58,7 @@ def pkd2voc(csv_file, img_dir, xml_dir):
             ET.SubElement(bndbox, "ymin").text = str(bbox[1])
             ET.SubElement(bndbox, "xmax").text = str(bbox[2])
             ET.SubElement(bndbox, "ymax").text = str(bbox[3])
+
             
             # Create the XML file
             xml_str = ET.tostring(annotation)
