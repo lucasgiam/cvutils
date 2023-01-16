@@ -1,9 +1,10 @@
 import json
 import os
 import xml.etree.ElementTree as ET
+from xml.dom import minidom
 
 json_file = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\ann.json'
-xml_dir = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\xml_ann_2'
+xml_dir = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\xml_ann'
 
 def coco2voc(json_file, xml_dir):
     with open(json_file) as f:
@@ -24,12 +25,8 @@ def coco2voc(json_file, xml_dir):
 
         root = ET.Element("annotation")
 
-        ET.SubElement(root, "folder").text = "coco_folder"
         ET.SubElement(root, "filename").text = file_name
         ET.SubElement(root, "path").text = file_name
-
-        source = ET.SubElement(root, "source")
-        ET.SubElement(source, "database").text = "coco_database"
 
         size = ET.SubElement(root, "size")
         ET.SubElement(size, "width").text = str(width)
@@ -60,10 +57,9 @@ def coco2voc(json_file, xml_dir):
             ET.SubElement(bndbox, "xmax").text = str(xmax)
             ET.SubElement(bndbox, "ymax").text = str(ymax)
 
-        # write xml file
-        xml_str = ET.tostring(root, encoding="unicode")
-        xml_str = xml_str.replace("\n", "\n    ")
+        rough_string = ET.tostring(root, 'utf-8')
+        reparsed = minidom.parseString(rough_string)
         with open(f"{xml_dir}/{file_name.split('.')[0]}.xml", "w") as f:
-            f.write(xml_str)
+            f.write(reparsed.toprettyxml(indent="  "))
 
 coco2voc(json_file, xml_dir)
