@@ -25,8 +25,12 @@ def coco2voc(json_file, xml_dir):
 
         root = ET.Element("annotation")
 
+        ET.SubElement(root, "folder").text = "coco_folder"
         ET.SubElement(root, "filename").text = file_name
         ET.SubElement(root, "path").text = file_name
+
+        source = ET.SubElement(root, "source")
+        ET.SubElement(source, "database").text = "coco_database"
 
         size = ET.SubElement(root, "size")
         ET.SubElement(size, "width").text = str(width)
