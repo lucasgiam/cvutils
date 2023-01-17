@@ -60,6 +60,6 @@ def voc2coco(xml_dir, json_file):
         coco_output["categories"].append({"id": id, "name": category})
         
     with open(json_file, 'w') as output_json_file:
-        json.dump(coco_output, output_json_file)
+        json.dump(coco_output, output_json_file, indent=4, sort_keys=True)
 
 voc2coco(xml_dir, json_file)
