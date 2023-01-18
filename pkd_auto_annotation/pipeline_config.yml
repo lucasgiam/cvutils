@@ -7,11 +7,11 @@ nodes:
     iou_threshold: 0.5
     score_threshold: 0.5
     mask_threshold: 0.5
-# - draw.bbox:
-#     show_labels: True
+- draw.bbox:
+    show_labels: True
 - output.csv_writer:
     stats_to_track: ["filename", "bboxes", "bbox_labels"]
-    file_path: C:\Users\Admin\Desktop\cam8\annotations.csv
+    file_path: C:\Users\Admin\Desktop\cam8_ann\annotations.csv
     logging_interval: 0
-# - output.media_writer:
-#     output_dir: C:\Users\Admin\Desktop\cam8
+- output.media_writer:
+    output_dir: C:\Users\Admin\Desktop\cam8_ann

@@ -7,9 +7,9 @@ import pandas as pd
 import xml.etree.cElementTree as ET
 from xml.dom import minidom
 
-csv_file = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\all_annotations.csv'
-img_dir =  r'C:\Users\s43482\Desktop\tfrecord2voc conversion\images'
-xml_dir = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\xml_generated'
+csv_file = r'C:\Users\Admin\Desktop\cam8_ann\annotations.csv'
+img_dir =  r'C:\Users\Admin\Desktop\cam8'
+xml_dir = r'C:\Users\Admin\Desktop\cam8_ann\xml_ann'
 
 def pkd2voc(csv_file, img_dir, xml_dir):
     df = pd.read_csv(csv_file)

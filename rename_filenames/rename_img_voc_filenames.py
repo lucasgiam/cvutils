@@ -1,8 +1,8 @@
 import os
 import xml.etree.ElementTree as ET
 
-image_dir = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\renamed_images'
-annotation_dir = r'C:\Users\s43482\Desktop\tfrecord2voc conversion\renamed_annotations'
+image_dir = r'C:\Users\Admin\Desktop\cam8\images'
+annotation_dir = r'C:\Users\Admin\Desktop\cam8\annotations'
 prefix = "image"
 start_num = 1
 
@@ -13,7 +13,7 @@ def rename_images_and_annotations(image_dir, annotation_dir, prefix, start_num):
     # digits = len(str(len(image_files)+start_num-1))
     for i, file in enumerate(image_files):
         ext = os.path.splitext(file)[1]
-        new_image_name = f"image{str(i+start_num).zfill(digits)}{ext}"
+        new_image_name = f"{prefix}{str(i+start_num).zfill(digits)}{ext}"
         old_image_path = os.path.join(image_dir, file)
         new_image_path = os.path.join(image_dir, new_image_name)
         os.rename(old_image_path, new_image_path)
