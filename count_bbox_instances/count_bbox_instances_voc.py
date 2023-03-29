@@ -1,7 +1,8 @@
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-xml_dir = r'C:\Users\Admin\Desktop\cam8\annotations'
+# User input
+xml_dir = r'C:\Users\Admin\Desktop\TTJ Annotations\cam9\annotations'
 
 xml_names = sorted(list(Path.iterdir(Path(xml_dir))))
 
