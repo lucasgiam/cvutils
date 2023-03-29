@@ -1,8 +1,8 @@
 import os
 import xml.etree.ElementTree as ET
 
-image_dir = r'C:\Users\Admin\Desktop\cam8\images'
-annotation_dir = r'C:\Users\Admin\Desktop\cam8\annotations'
+image_dir = r'C:\Users\Admin\Desktop\TTJ Annotations\cam9\images'
+annotation_dir = r'C:\Users\Admin\Desktop\TTJ Annotations\cam9\annotations'
 prefix = "image"
 start_num = 1
 

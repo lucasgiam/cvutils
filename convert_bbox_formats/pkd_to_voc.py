@@ -7,9 +7,9 @@ import pandas as pd
 import xml.etree.cElementTree as ET
 from xml.dom import minidom
 
-csv_file = r'C:\Users\Admin\Desktop\cam8_ann\annotations.csv'
-img_dir =  r'C:\Users\Admin\Desktop\cam8'
-xml_dir = r'C:\Users\Admin\Desktop\cam8_ann\xml_ann'
+csv_file = r'C:\Users\Admin\Desktop\TTJ Annotations\cam9\pkd_out\annotations_290323-21-52-37.csv'
+img_dir =  r'C:\Users\Admin\Desktop\TTJ Annotations\cam9\images'
+xml_dir = r'C:\Users\Admin\Desktop\TTJ Annotations\cam9\annotations'
 
 def pkd2voc(csv_file, img_dir, xml_dir):
     df = pd.read_csv(csv_file)
@@ -59,6 +59,9 @@ def pkd2voc(csv_file, img_dir, xml_dir):
             ET.SubElement(bndbox, "xmax").text = str(bbox[2])
             ET.SubElement(bndbox, "ymax").text = str(bbox[3])
 
+            # check if xml_dir exists, and if not, create one
+            if not os.path.exists(xml_dir):
+                os.makedirs(xml_dir)
             
             # Create the XML file
             xml_str = ET.tostring(annotation)
